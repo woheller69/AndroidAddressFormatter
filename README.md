@@ -9,8 +9,9 @@ and to the work of [Placemarkt](https://github.com/placemarkt/address-formatter-
 
 ### Installation
 
-```
-gradle
+Add the JitPack repository to your root build.gradle at the end of repositories:
+
+```gradle
 allprojects {
   repositories {
     ...
@@ -18,6 +19,8 @@ allprojects {
   }
 }
 ```
+
+Add the library dependency to your build.gradle file.
 
 ```gradle
 dependencies {
