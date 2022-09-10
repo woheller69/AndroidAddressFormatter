@@ -65,6 +65,7 @@ public class AndroidAddressFormatter {
   }
 
   public String format(String json, String fallbackCountryCode) throws IOException {
+    json = json.replace("\\","");
     TypeFactory factory = TypeFactory.defaultInstance();
     MapType type = factory.constructMapType(HashMap.class, String.class, String.class);
     Map<String, Object> components = null;
@@ -83,8 +84,10 @@ public class AndroidAddressFormatter {
     components = determineCountryCode(components, fallbackCountryCode);
     String countryCode = components.get("country_code").toString();
 
-    if (appendCountry && Templates.COUNTRY_NAMES.getData().has(countryCode) && components.get("country") == null) {
-      components.put("country", Templates.COUNTRY_NAMES.getData().get(countryCode).asText());
+    if (appendCountry) {
+      if (Templates.COUNTRY_NAMES.getData().has(countryCode) && components.get("country") == null) {
+        components.put("country", Templates.COUNTRY_NAMES.getData().get(countryCode).asText());
+      }
     }else components.remove("country");       //if !appendCountry do not show it, even if it is there
 
     components = applyAliases(components);
