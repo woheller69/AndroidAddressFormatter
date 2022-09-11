@@ -32,7 +32,7 @@ dependencies {
 
 ```
 // Constructor
-AddressFormatter(Boolean abbreviate, Boolean appendCountry, Boolean appendUnknown)
+AndroidAddressFormatter(Boolean abbreviate, Boolean appendCountry, Boolean appendUnknown)
 
 abbreviate: true: use abbreviations
 appendCountry: true: show country name
@@ -46,7 +46,7 @@ format(String json, String fallbackCountryCode)
 ### Use
 
 ```
-AddressFormatter formatter = new AddressFormatter(false, false, false);
+AndroidAddressFormatter formatter = new AndroidAddressFormatter(false, false, false);
 String json = "{country_code: 'US',\n"
           + "house_number: '301',\n"
           + "road: 'Hamilton Avenue',\n"
