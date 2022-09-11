@@ -65,7 +65,6 @@ public class AndroidAddressFormatter {
   }
 
   public String format(String json, String fallbackCountryCode) throws IOException {
-    json = json.replace("\\","");
     TypeFactory factory = TypeFactory.defaultInstance();
     MapType type = factory.constructMapType(HashMap.class, String.class, String.class);
     Map<String, Object> components = null;
